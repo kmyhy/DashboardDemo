@@ -38,7 +38,7 @@ Ammeter 支持将电量、油量以动画形式展示。你只需要调用 start
 [ammeter startAnimating];
 ```
 
-运行示例项目，点击 Animating 按钮。
+运行示例项目，点击 Animating 按钮，查看动画效果。
 
 ### 定制其它 subviews 
 
