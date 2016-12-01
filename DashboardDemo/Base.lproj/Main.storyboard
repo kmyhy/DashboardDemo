@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1808" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <development version="6000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="joN-eG-eIO"/>
+                        <viewControllerLayoutGuide type="bottom" id="odh-WW-BKm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4a-9l-F0X">
+                                <rect key="frame" x="126" y="405" width="69" height="30"/>
+                                <state key="normal" title="Animating"/>
+                                <connections>
+                                    <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cn0-qR-sF4"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tl8-Dp-jXe" customClass="Ammeter">
+                                <rect key="frame" x="53" y="177" width="214" height="214"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="214" id="AIP-Tt-THb"/>
+                                    <constraint firstAttribute="width" constant="214" id="aoz-tF-d1k"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="minMarkColor">
+                                        <color key="value" red="0.8793600063" green="0.8793600063" blue="0.8793600063" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="defaultColor">
+                                        <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tl8-Dp-jXe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1C7-XA-m6Q"/>
+                            <constraint firstItem="Tl8-Dp-jXe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S3p-FP-6Iw"/>
+                            <constraint firstItem="p4a-9l-F0X" firstAttribute="top" secondItem="Tl8-Dp-jXe" secondAttribute="bottom" constant="14" id="mOt-Sp-lO7"/>
+                            <constraint firstItem="p4a-9l-F0X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sfe-pP-3KJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ammeter" destination="Tl8-Dp-jXe" id="HqH-QU-MHo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="406.59333333333331"/>
+        </scene>
+    </scenes>
+</document>

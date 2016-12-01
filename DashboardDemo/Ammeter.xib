@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1808" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <development version="6000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Ammeter">
+            <connections>
+                <outlet property="dashboard" destination="N48-U0-Adn" id="RVo-3s-dmO"/>
+                <outlet property="lbPercentSign" destination="myP-cM-a5y" id="Nwr-LY-f26"/>
+                <outlet property="lbPower" destination="PqM-VC-wjz" id="xdW-CM-Joz"/>
+                <outlet property="lbRemainder" destination="yqd-zl-y13" id="4N8-15-esO"/>
+                <outlet property="view" destination="iN0-l3-epB" id="7Zo-hB-hT9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="214" height="214"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N48-U0-Adn" customClass="Dashboard">
+                    <rect key="frame" x="0.0" y="0.0" width="214" height="214"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqd-zl-y13">
+                            <rect key="frame" x="85" y="86" width="44" height="43"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myP-cM-a5y">
+                            <rect key="frame" x="137" y="108" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="电量" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqM-VC-wjz">
+                            <rect key="frame" x="86" y="137" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="myP-cM-a5y" firstAttribute="bottom" secondItem="yqd-zl-y13" secondAttribute="bottom" id="Mow-tJ-OFX"/>
+                        <constraint firstItem="myP-cM-a5y" firstAttribute="leading" secondItem="yqd-zl-y13" secondAttribute="trailing" constant="2" id="ZAi-SO-ukY"/>
+                        <constraint firstItem="PqM-VC-wjz" firstAttribute="centerX" secondItem="N48-U0-Adn" secondAttribute="centerX" id="epP-FW-sgj"/>
+                        <constraint firstItem="yqd-zl-y13" firstAttribute="centerY" secondItem="N48-U0-Adn" secondAttribute="centerY" id="hnN-CQ-HIU"/>
+                        <constraint firstItem="PqM-VC-wjz" firstAttribute="top" secondItem="yqd-zl-y13" secondAttribute="bottom" constant="8" id="sxS-QC-fhQ"/>
+                        <constraint firstItem="yqd-zl-y13" firstAttribute="centerX" secondItem="N48-U0-Adn" secondAttribute="centerX" id="wPw-Ph-4gi"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="value">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="N48-U0-Adn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6fo-f5-geZ"/>
+                <constraint firstAttribute="trailing" secondItem="N48-U0-Adn" secondAttribute="trailing" id="7NB-wD-Z2k"/>
+                <constraint firstItem="N48-U0-Adn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="V9x-p9-tJl"/>
+                <constraint firstAttribute="bottom" secondItem="N48-U0-Adn" secondAttribute="bottom" id="mim-gG-OVG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="145" y="407"/>
+        </view>
+    </objects>
+</document>
