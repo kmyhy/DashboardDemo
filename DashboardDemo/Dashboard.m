@@ -52,6 +52,7 @@
     self.minMarkWidth = 1.5;
     self.minMarkLength = 3;
 }
+
 -(void)drawRect:(CGRect)rect{
     CGFloat radius = rect.size.width/2;
     center = CGPointMake(radius,radius);
