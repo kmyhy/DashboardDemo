@@ -28,7 +28,19 @@ Ammeter 支持 IB 的可视化设计。在故事板中拖入一个 UIView，在�
 * Default Color : 设置空的刻度线的默认颜色（图中用于表示已用掉的电量）。
 * Danger Color 和 Danger Value : 设置最低阀值和警告色，例如电量少于 10% 用红色表示，可以将 Danger Value 设置为 0.1，Danger Color 设置为红色。
 * Value : 设置仪表盘的当前值，比如 0.8，表示当前电量（油量）还剩 80%。
-* Min Mark Length、Min Mark Length 和 Min Mark Color : 设置小刻度线（中间一圈的刻度线）长度、线宽及颜色。
+* Min Mark Length、Min Mark Width 和 Min Mark Color : 设置小刻度线（中间一圈的刻度线）长度、线宽及颜色。
+
+### 指定绘制的起始角度和终止角度
+startDegree 和 endDegree 分别用于指定圆弧绘制的起始角度、终止角度，这两个角度的值以 y 轴的负轴为起点（即 0 度）开始计算，顺时针增加。例如：
+
+```swift
+_ammeter.startDegree = 0;
+_ammeter.endDegree = 360;
+_ammeter.minMarkColor = [UIColor clearColor];
+```
+这会绘制一个整圆：
+
+<img src="5.png" width = "320"/>
 
 ### 动画显示
 

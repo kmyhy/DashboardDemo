@@ -145,4 +145,13 @@
 
     _dashboard.minMarkColor=value;
 }
+
+-(void)setStartDegree:(CGFloat)startDegree{
+    _startDegree = startDegree;
+    _dashboard.startDegree = startDegree;
+}
+-(void)setEndDegree:(CGFloat)endDegree{
+    _endDegree = endDegree;
+    _dashboard.endDegree = endDegree;
+}
 @end

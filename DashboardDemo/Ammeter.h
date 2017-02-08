@@ -24,6 +24,8 @@ IB_DESIGNABLE
 @property(assign,nonatomic)IBInspectable CGFloat minMarkWidth;
 @property(strong,nonatomic)IBInspectable UIColor* minMarkColor;
 
+@property(assign,nonatomic)IBInspectable CGFloat startDegree;// 开始角度
+@property(assign,nonatomic)IBInspectable CGFloat endDegree;// 结束角度
 // UILabels
 
 @property (weak, nonatomic) IBOutlet UILabel *lbPower;

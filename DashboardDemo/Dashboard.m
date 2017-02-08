@@ -51,26 +51,30 @@
     self.minMarkColor = [UIColor lightGrayColor];
     self.minMarkWidth = 1.5;
     self.minMarkLength = 3;
+    
+    self.startDegree = 45;
+    self.endDegree = 315;
 }
 
 -(void)drawRect:(CGRect)rect{
     CGFloat radius = rect.size.width/2;
     center = CGPointMake(radius,radius);
     
-    for(int i = 0;i<=270;i+=5){
+    for(int i = _startDegree;i<_endDegree;i+=5){
         UIColor *color = _defaultColor;
-        CGFloat degree = 270*_value;// percent covert to 0-270 degrees.
+        CGFloat span = _endDegree-_startDegree;
+        CGFloat degree = span*_value;// percent covert to 0-270 degrees.
         if( i > degree){
             color = _defaultColor;
         }else{
             if( _value <= _dangerValue ){
                 color = _dangerColor;
             }else{
-                CGFloat location = i/270.0;// degree conver to 0-1 percent.
+                CGFloat location = i/span;// degree conver to 0-1 percent.
                 color = [UIColor colorBetweenColor:_startColor andColor:_endColor atLocation:location];
             }
         }
-        [self drawMarkAt:-i radius:radius color:color];
+        [self drawMarkAt:i radius:radius color:color];
         
         CGFloat minMarkRadius = radius - _markLength - _markLength/2 - _minMarkLength;
         [self drawMinMarkAt:-i radius:minMarkRadius color:_minMarkColor];
@@ -79,11 +83,12 @@
 
 -(void)drawMarkAt:(CGFloat)degree radius:(CGFloat)radius color:(UIColor*)color{
     
+//    NSLog(@"%.0f,%@",degree,color);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSaveGState(context);
     CGContextTranslateCTM(context, center.x, center.y);
 
-    CGContextRotateCTM(context, -(degree+45) * M_PI / 180);
+    CGContextRotateCTM(context, (degree-90) * M_PI / 180);
     
     UIBezierPath* bezierPath = [UIBezierPath bezierPath];
     [bezierPath moveToPoint: CGPointMake(-radius, -0)];
@@ -104,7 +109,7 @@
     CGContextSaveGState(context);
     CGContextTranslateCTM(context, center.x, center.y);
     
-    CGContextRotateCTM(context, -(degree+45) * M_PI / 180);
+    CGContextRotateCTM(context, (degree-90) * M_PI / 180);
     
     UIBezierPath* bezierPath = [UIBezierPath bezierPath];
     [bezierPath moveToPoint: CGPointMake(-radius, -0)];
@@ -162,6 +167,13 @@
 -(void)setMinMarkColor:(UIColor*)value{
     _minMarkColor=value;
     [self setNeedsDisplay];
-    
+}
+-(void)setStartDegree:(CGFloat)startDegree{
+    _startDegree = startDegree;
+    [self setNeedsDisplay];
+}
+-(void)setEndDegree:(CGFloat)endDegree{
+    _endDegree = endDegree;
+    [self setNeedsDisplay];
 }
 @end
