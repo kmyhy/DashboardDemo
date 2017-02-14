@@ -59,11 +59,11 @@
 -(void)drawRect:(CGRect)rect{
     CGFloat radius = rect.size.width/2;
     center = CGPointMake(radius,radius);
-    
-    for(int i = _startDegree;i<_endDegree;i+=5){
-        UIColor *color = _defaultColor;
-        CGFloat span = _endDegree-_startDegree;
-        CGFloat degree = span*_value;// percent covert to 0-270 degrees.
+    UIColor *color = _defaultColor;
+    CGFloat span = _endDegree-_startDegree;
+    CGFloat degree = span*_value;// percent covert to 0-270 degrees.
+    for(int i = 0;i<=span;i+=5){
+        
         if( i > degree){
             color = _defaultColor;
         }else{
@@ -74,10 +74,11 @@
                 color = [UIColor colorBetweenColor:_startColor andColor:_endColor atLocation:location];
             }
         }
-        [self drawMarkAt:i radius:radius color:color];
+        [self drawMarkAt:i+_startDegree radius:radius color:color];
+//        NSLog(@"%d",i);
         
         CGFloat minMarkRadius = radius - _markLength - _markLength/2 - _minMarkLength;
-        [self drawMinMarkAt:-i radius:minMarkRadius color:_minMarkColor];
+        [self drawMinMarkAt:i+_startDegree radius:minMarkRadius color:_minMarkColor];
     }
 }
 

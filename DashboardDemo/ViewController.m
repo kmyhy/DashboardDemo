@@ -23,7 +23,7 @@
     _ammeter.startDegree = 0;
     _ammeter.endDegree = 360;
     _ammeter.minMarkColor = [UIColor clearColor];
-    _ammeter.value= 0;
+    _ammeter.value= 0.8;
 }
 
 - (void)didReceiveMemoryWarning {
