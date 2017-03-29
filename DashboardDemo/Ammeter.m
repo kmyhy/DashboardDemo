@@ -35,13 +35,11 @@
     [self addSubview:self.view];
     
     displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(animateDashboard:)];
-    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-    displayLink.paused = YES;
 }
 -(void)animateDashboard:(CADisplayLink *)sender{
     if( endValue <= self.value){// 到达终点值，停止动画
         self.value = endValue;
-        displayLink.paused = YES;
+        [displayLink invalidate];
         isAnimating = NO;
     }else{
         CGFloat speed = endValue/0.75;
@@ -91,12 +89,12 @@
     if(isAnimating == NO){
         endValue = self.value;
         self.value = 0;
-        displayLink.paused = NO;
+        [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
         isAnimating = YES;
     }
 }
 -(void)stopAnimating{
-    displayLink.paused = YES;
+    [displayLink invalidate];
 }
 // MARK: - getter/setter
 -(void)setMarkLength:(CGFloat)value{
